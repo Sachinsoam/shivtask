@@ -6,12 +6,11 @@ resource "aws_eks_node_group" "eks_ng_public" {
   node_group_name = "${local.name}-eks-ng-public"
   node_role_arn   = aws_iam_role.eks_nodegroup_role.arn
   subnet_ids      = module.vpc.public_subnets
-  #version = var.cluster_version #(Optional: Defaults to EKS Cluster Kubernetes version)    
   
   ami_type = "AL2_x86_64"  
   capacity_type = "ON_DEMAND"
   disk_size = 20
-  instance_types = ["t3.medium"]
+  instance_types = ["t2.micro"]
   
   
   remote_access {
@@ -24,10 +23,9 @@ resource "aws_eks_node_group" "eks_ng_public" {
     max_size     = 2
   }
 
-  # Desired max percentage of unavailable worker nodes during node group update.
+  # max percentage of unavailable worker nodes during group update.
   update_config {
     max_unavailable = 1    
-    #max_unavailable_percentage = 50    # ANY ONE TO USE
   }
 
   # Ensure that IAM Role permissions are created before and deleted after EKS Node Group handling.

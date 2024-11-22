@@ -53,27 +53,25 @@ variable "vpc_public_subnets" {
 # }
 
   
-# VPC Enable NAT Gateway (True or False) 
-variable "vpc_enable_nat_gateway" {
-  description = "Enable NAT Gateways for Private Subnets Outbound Communication"
-  type = bool
-  default = true  
-}
+# # VPC Enable NAT Gateway (True or False) 
+# variable "vpc_enable_nat_gateway" {
+#   description = "Enable NAT Gateways for Private Subnets Outbound Communication"
+#   type = bool
+#   default = true  
+# }
 
-# VPC Single NAT Gateway (True or False)
-variable "vpc_single_nat_gateway" {
-  description = "Enable only single NAT Gateway in one Availability Zone to save costs during our demos"
-  type = bool
-  default = true
-}
-
-
+# # VPC Single NAT Gateway (True or False)
+# variable "vpc_single_nat_gateway" {
+#   description = "Enable only single NAT Gateway in one Availability Zone to save costs during our demos"
+#   type = bool
+#   default = true
+# }
 
 
 
-#GENERIC VARIABLES. TF
-# Input Variables
-# AWS Region
+
+
+#GENERIC VARIABLES
 variable "aws_region" {
   description = "Region in which AWS Resources to be created"
   type = string
@@ -113,11 +111,7 @@ variable "cluster_version" {
   type = string
   default     = null
 }
-# variable "cluster_endpoint_private_access" {
-#   description = "Indicates whether or not the Amazon EKS private API server endpoint is enabled."
-#   type        = bool
-#   default     = false
-# }
+
 
 variable "cluster_endpoint_public_access" {
   description = "Indicates whether or not the Amazon EKS public API server endpoint is enabled. When it's set to `false` ensure to have a proper private access with `cluster_endpoint_private_access = true`."
