@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment 
 metadata: #Dictionary
-  name: myapp1-deployment
+  name: atcdemo-deployment
 spec: # Dictionary
   replicas: 2
   selector:
     matchLabels:
-      app: myapp1
+      app: atcdemo
   template:  
     metadata: # Dictionary
-      name: myapp1-pod
+      name: atcdemo-pod
       labels: # Dictionary
-        app: myapp1  # Key value pairs
+        app: atcdemo  # Key value pairs
     spec:
       containers: # List
-        - name: myapp1-container
+        - name: atcdemo-container
           image: public.ecr.aws/q1x1f8q8/atcdemo:v2       
           ports: 
             - containerPort: 80  
