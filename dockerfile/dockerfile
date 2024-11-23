@@ -1,12 +1,9 @@
 #NGINX image as a base
 FROM nginx:latest
 
-#label 
-LABEL maintainer="Sachin <sachinsoam8869@gmail.com>" \
-      description="Dockerfile for serving a static website with NGINX"
 
 # Copy the HTML file into the NGINX directory
-COPY index.html /usr/share/nginx/html/index.html
+ADD index.html /usr/share/nginx/html/index.html
 
 
 
