@@ -63,3 +63,8 @@ resource "aws_iam_role_policy_attachment" "eks-AmazonEC2ContainerRegistryReadOnl
   role       = aws_iam_role.eks_nodegroup_role.name
 }
 
+# Attach the AutoScalingFullAccess policy to the EKS node group role
+resource "aws_iam_role_policy_attachment" "eks-AutoScalingFullAccess" {
+  policy_arn = "arn:aws:iam::aws:policy/AutoScalingFullAccess"
+  role       = aws_iam_role.eks_nodegroup_role.name
+}

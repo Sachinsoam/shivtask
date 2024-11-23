@@ -20,10 +20,10 @@ resource "aws_eks_node_group" "eks_ng_public" {
   scaling_config {
     desired_size = 1
     min_size     = 1    
-    max_size     = 2
+    max_size     = 5
   }
 
-  # max percentage of unavailable worker nodes during group update.
+  # max percentage of unavailable worker nodes during node group update.
   update_config {
     max_unavailable = 1    
   }
@@ -34,6 +34,7 @@ resource "aws_eks_node_group" "eks_ng_public" {
     aws_iam_role_policy_attachment.eks-AmazonEKSWorkerNodePolicy,
     aws_iam_role_policy_attachment.eks-AmazonEKS_CNI_Policy,
     aws_iam_role_policy_attachment.eks-AmazonEC2ContainerRegistryReadOnly,
+    aws_iam_role_policy_attachment.eks-AutoScalingFullAccess,
   ] 
 
   tags = {
