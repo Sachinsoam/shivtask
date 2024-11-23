@@ -15,7 +15,7 @@ spec: # Dictionary
     spec:
       containers: # List
         - name: atcdemo-container
-          image: public.ecr.aws/q1x1f8q8/atcdemo:v2       
+          image: public.ecr.aws/q1x1f8q8/demotask:1     
           ports: 
             - containerPort: 80  
     
